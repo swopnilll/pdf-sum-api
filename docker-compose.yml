@@ -13,8 +13,8 @@ services:
       - mongo
       - redis
     volumes:
-      - .:/usr/src/app
-    command: ["node", "index.js"]
+      - .:/usr/src/app # Mounts the current directory into the container to allow live code updates
+    command: ["npm", "run", "dev"] # Runs nodemon instead of node to enable auto-reloading
 
   mongo:
     image: mongo:latest
