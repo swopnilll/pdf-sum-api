@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import redis from "redis";
 import dotenv from "dotenv";
 
+import apiRoutes from "./routes/api.js";
+
 dotenv.config();
 
 const app = express();
@@ -50,7 +52,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-// app.use("/api", apiRoutes);
+app.use("/api", apiRoutes);
 
 const PORT = process.env.PORT || 3000;
 
